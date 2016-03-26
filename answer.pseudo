@@ -1,6 +1,6 @@
 /*
-*	I've aploaded a working app.js and package.json files in this repository
-*	Please create a new directory and download those files inside that
+*	I've uploaded a working app.js and package.json files in this repository
+*	Please create a new directory and download those files inside that newly created directory on your local machine
 *	Move to this newly created directory inside your terminal or command promt(if your using windows machine)
 *	Run 'npm install' without quotes
 *	Above command will install a node package called ExpressJS if you've nodejs and npm installed on your machine otherwise it will generate an error message
