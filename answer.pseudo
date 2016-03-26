@@ -1,0 +1,41 @@
+/*
+*	I've aploaded a working app.js and package.json files in this repository
+*	Please create a new directory and download those files inside that
+*	Move to this newly created directory inside your terminal or command promt(if your using windows machine)
+*	Run 'npm install' without quotes
+*	Above command will install a node package called ExpressJS if you've nodejs and npm installed on your machine otherwise it will generate an error message
+*	Now finally you can hit a command 'nodejs app.js' or 'node app.js'(if your using windows machine) without quotes
+*	Above command will start your ExpressJS server at port 3000
+*	Open your favorite web browser and enter url "http://localhost:3000/getname/guest" without quotes
+*	You can replace guest with anything you want in the above url
+*	Web browser will display the response with your guestname along with randomly generated number between 6 to 15
+*/
+
+// Load ExpressJS
+var express = require('express');
+
+// Create the Express app
+var app = express();
+
+// Create route URI with name as a parameter
+app.use('/getname/:name', function(req, resp){
+	
+	// Send response back to the client by calling send method which uses getName(name) method that generate a name using given name and append that with a randomly generated number within 6 and 15.
+	resp.send(getName(req.params.name));
+});
+
+// getName Method definition
+function getName(name){
+	
+	// return name with random number
+	// Here 15 is higher limit value so (15-6 = 9) and 6 is the lower limit value
+	return name+Math.floor((Math.random() * 9) + 6);
+}
+
+// Set port on which ExpressJS Server will listen
+app.set('port', process.env.PORT || 3000);
+
+// Actual server listening
+var server = app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + server.address().port);
+});
